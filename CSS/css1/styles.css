@@ -1,0 +1,11 @@
+h1 {
+    font-size: 22px;
+    color: red;
+}
+p {
+    border: 10px solid black;
+    border-radius: 15px 40px 15px 40px;
+    background: grey;
+    padding: 15px
+    
+}
