@@ -1,0 +1,25 @@
+#corpo{
+	background-image: url(/CSS/css2/img/torre-eiffel.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.text{
+	border: 10px solid #795548;
+	border-radius: 10px;
+	width: 300px;
+	background-color: rgba(255,255,255,0.5);
+	position: relative;
+	top: 50px;
+	left: 50px;
+}
+
+#titulo{
+	text-align: center;
+}
+
+p{
+	text-align: center;
+}
