@@ -1,0 +1,56 @@
+.container {
+    display: grid;
+    background-color: white;
+    gap: 10px;
+    padding: 10px;
+    grid-auto-rows: 100px;
+    grid-template-areas: 
+    "header header header asides1 asides1 asides1" 
+    "main a2 a2 a2 a2 a2"
+    "footer footer footer footer footer footer";
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        grid-template-areas: 
+        "header header header asides1 asides1 asides1" 
+        "main main a2 a2 a2 a2"
+        "main main footer footer footer footer";
+    }
+}
+@media screen and (max-width: 400px) {
+    .container {
+        grid-template-areas:
+        "header" "asides1" "main" "a2" "footer";
+    }
+}
+.container * {
+    border-radius: 4px;
+    padding: 10px;
+    color: white;
+}
+
+.container>header {
+    grid-area: header;
+    background-color: darkred;
+}
+
+.container>aside.as1 {
+    grid-area: asides1;
+    background-color: darkblue;
+}
+
+.container>main {
+    grid-area: main;
+    background-color: darkgreen;
+}
+
+.container>aside.as2 {
+    grid-area: a2;
+    background-color: darkorange;
+}
+
+.container>footer {
+    grid-area: footer;
+    background-color: salmon;
+}
