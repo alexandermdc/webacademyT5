@@ -1,0 +1,54 @@
+h1 {
+  font-family: helvetica, arial, sans-serif;
+  text-align: center;
+}
+
+body {
+  width: 640px;
+  margin: 0 auto;
+}
+
+.full-img img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-height: 480px;
+  display: block;
+}
+
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1000px;
+  height: 560px;
+  background-color: rgba(0,0,0,0);
+  z-index: 4;
+  pointer-events: none;
+  position: flex;
+}
+
+
+button {
+  border: 0;
+  background: rgba(150,150,150,0.6);
+  text-shadow: 1px 1px 1px white;
+  border: 1px solid #999;
+  position: absolute;
+  cursor: pointer;
+  top: 2px;
+  left: 2px;
+}
+
+.thumb-bar img {
+  width: 18%;         
+  aspect-ratio: 3 / 4;    
+  object-fit: cover;      
+  float: left;
+  margin: 1%;            
+  box-sizing: border-box;
+  border: 2px solid #ccc; 
+  transition: transform 0.3s;
+  cursor: pointer;
+}
