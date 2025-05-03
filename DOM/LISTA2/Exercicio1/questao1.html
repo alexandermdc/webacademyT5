@@ -1,0 +1,41 @@
+  <h1>Lista</h1>
+    
+      <div>
+        <p id="lista-titulo" name="lista">Meus itens:</p>
+      </div>
+    
+      <ul id="lista-itens-1">
+        <li id="one" class="hot">item a</li>
+        <li id="two" class="hot">item b</li>
+        <li id="three" class="hot">item c</li>
+        <li id="four">item d</li>
+      </ul>
+    
+      <script>
+
+        const lista = document.getElementById('lista-itens-1');
+
+        const primeiroFilho = lista.firstElementChild;
+        const ultimoFilho = lista.lastElementChild;
+        console.log('Primeiro filho da lista:', primeiroFilho);
+        console.log('Último filho da lista:', ultimoFilho);
+
+        const elementoPai = lista.parentElement;
+        console.log('Elemento pai da lista:', elementoPai);
+
+        const filhosDaLista = lista.children;
+        console.log('Todos os filhos da lista (um a um):');
+        for (let i = 0; i < filhosDaLista.length; i++) {
+          console.log(`Filho ${i}:`, filhosDaLista[i]);
+        }
+
+        const itemTwo = document.getElementById('two');
+        console.log('Item com id "two":', itemTwo);
+  
+        const irmaoAnterior = itemTwo.previousElementSibling;
+        const irmaoProximo = itemTwo.nextElementSibling;
+        console.log('Irmão anterior do item "two":', irmaoAnterior);
+        console.log('Irmão próximo do item "two":', irmaoProximo);
+  
+      </script>
+  </body>
