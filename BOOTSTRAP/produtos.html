@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Loja WA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Gerenciar produtos -->
+    <div class="container mt-5">
+      <h2>Gerenciar Produtos:</h2>
+      <div class="d-flex justify-content-end mb-3">
+        <!-- Botão que abre o modal -->
+        <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalNovoProduto">
+          Novo Produto
+        </button>
+      </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Produto</th>
+            <th scope="col">Preço</th>
+            <th scope="col">Estoque</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Bicicleta</td>
+            <td>R$ 1.000,00</td>
+            <td>110</td>
+            <td>
+              <button class="btn btn-secondary btn-sm">Editar</button>
+              <button class="btn btn-secondary btn-sm">Excluir</button>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Echo dot</td>
+            <td>R$ 600,00</td>
+            <td>8</td>
+            <td>
+              <button class="btn btn-secondary btn-sm">Editar</button>
+              <button class="btn btn-secondary btn-sm">Excluir</button>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Celular</td>
+            <td>R$ 1.500,00</td>
+            <td>10</td>
+            <td>
+              <button class="btn btn-secondary btn-sm">Editar</button>
+              <button class="btn btn-secondary btn-sm">Excluir</button>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>Umidificador</td>
+            <td>R$ 100,00</td>
+            <td class="text-danger">0</td>
+            <td>
+              <button class="btn btn-secondary btn-sm">Editar</button>
+              <button class="btn btn-secondary btn-sm">Excluir</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Modal de cadastro de novo produto -->
+    <div class="modal fade" id="modalNovoProduto" tabindex="-1" aria-labelledby="modalNovoProdutoLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalNovoProdutoLabel">Novo produto</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <form>
+                <div class="mb-3">
+                  <label for="nomeProduto" class="form-label">Produto</label>
+                  <input type="text" class="form-control" id="nomeProduto" placeholder="Nome do produto" required>
+                </div>
+                <div class="mb-3">
+                  <label for="precoProduto" class="form-label">Preço</label>
+                  <input type="text" class="form-control" id="precoProduto" placeholder="Ex: R$ 199,90" required>
+                </div>
+                <div class="mb-3">
+                  <label for="estoqueProduto" class="form-label">Estoque</label>
+                  <input type="number" class="form-control" id="estoqueProduto" placeholder="Ex: 10" required>
+                </div>
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-success">Confirmar cadastro</button>
+                </div>
+              </form>
+              
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
