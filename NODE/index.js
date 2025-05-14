@@ -1,11 +1,9 @@
 const http = require('http');
 const fs = require('fs');
 const dotenv = require('dotenv');
+dotenv.config({ path: `.env.${process.env.NODE_ENV}` })
 
-/* dotenv.config({path: `./.env.${process.env.NODE_ENV}`}); */
-//console.log(process.env);
-
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 const diretorio = process.argv[2] || './';
 
 const server = http.createServer((req, res) => {
@@ -28,4 +26,5 @@ const server = http.createServer((req, res) => {
 
 server.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
+    console.log(`http://localhost:${PORT}`);
 });
