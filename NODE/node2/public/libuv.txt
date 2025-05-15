@@ -1,0 +1,7 @@
+Libuv é uma biblioteca multiplataforma escrita em C que fornece uma camada de abstração para operações de entrada e saída assíncronas (I/O). Ela foi criada originalmente para ser usada pelo Node.js, permitindo que aplicações JavaScript executem tarefas como leitura e escrita em arquivos, manipulação de redes, timers e outros recursos do sistema operacional de forma não bloqueante.
+
+A principal característica do libuv é seu loop de eventos, que gerencia múltiplas operações simultaneamente sem bloquear a execução do programa. Isso é fundamental para aplicações de alto desempenho e escaláveis, especialmente servidores web e aplicações de rede.
+
+Além do Node.js, o libuv pode ser utilizado em outros projetos que necessitam de I/O assíncrono eficiente. Ele suporta sistemas operacionais como Linux, Windows e macOS, garantindo portabilidade e desempenho consistente.
+
+Em resumo, o libuv é uma peça fundamental para o ecossistema do Node.js e para qualquer aplicação que precise lidar com operações assíncronas de forma eficiente e multiplataforma.
