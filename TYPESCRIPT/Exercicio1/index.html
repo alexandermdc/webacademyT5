@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lembretes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body class="bg-light">
+  <div class="container py-4">
+    <h1 class="mb-4 text-center text-success fw-bold">Lembretes</h1>
+
+    <!-- Formulário para adicionar novo -->
+    <form id="todo-form" class="mb-4">
+      <div class="mb-3">
+        <label for="title" class="form-label">Título *</label>
+        <input type="text" id="title" class="form-control" required placeholder="Digite o título da tarefa" />
+      </div>
+      <div class="mb-3">
+        <label for="deadline" class="form-label">Data limite</label>
+        <input type="datetime-local" id="deadline" class="form-control" />
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Descrição</label>
+        <textarea id="description" class="form-control" rows="3" placeholder="Detalhes adicionais"></textarea>
+      </div>
+      <button type="submit" class="btn btn-success w-100">Adicionar</button>
+    </form>
+
+    <div id="todo-list" class="row row-cols-1 g-3"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
