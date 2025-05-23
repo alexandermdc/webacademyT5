@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Carrinho de Compras</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    h1, h2 {
+      color: #0d6efd;
+    }
+    #total {
+      font-weight: bold;
+      color: #198754;
+    }
+    .card-custom {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body class="container py-5">
+
+  <div class="card-custom">
+    <h1 class="mb-4">Carrinho de Compras</h1>
+
+    <form id="produto-form" class="row g-3">
+      <div class="col-md-4">
+        <label class="form-label">Tipo</label>
+        <select id="tipo-produto" class="form-select" required>
+          <option value="tv">TV</option>
+          <option value="celular">Celular</option>
+          <option value="bicicleta">Bicicleta</option>
+        </select>
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label">Modelo</label>
+        <input type="text" class="form-control" id="modelo" required />
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label">Fabricante</label>
+        <input type="text" class="form-control" id="fabricante" required />
+      </div>
+
+      <div id="campos-especificos" class="col-12"></div>
+
+      <div class="col-md-4">
+        <label class="form-label">Valor (R$)</label>
+        <input type="number" class="form-control" id="valor" step="0.01" required />
+      </div>
+
+      <div class="col-12 d-flex justify-content-end mt-3">
+        <button type="submit" class="btn btn-success px-4">Adicionar ao Carrinho</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="card-custom">
+    <h2 class="mb-3">Itens no Carrinho</h2>
+    <ul id="lista-carrinho" class="list-group mb-3"></ul>
+    <h4 id="total" class="text-end mt-4"></h4>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
