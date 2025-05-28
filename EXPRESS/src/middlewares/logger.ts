@@ -8,13 +8,10 @@ function logger(type: LoggerType) {
     if (type === "simple") {
         return async (req: Request, res: Response, next: NextFunction)=>{
             const data = new Date()
-            await fs.writeFile("conteudo", `${process.cwd()}/${LOGS_PATH}/logs.log`,  `${data.toISOString()} ${req.url} ${req.method}\n`, 'conteudo')
-            {
-                flag : 'a'
-            }
-        next()
+            await fs.writeFile(`${process.cwd()}/${LOGS_PATH}/logs.log`, `${data.toISOString()} ${req.url} ${req.method}\n`, { flag: 'a' })
+            next()
         }
-    }else{
+    } else {
         return (req: Request, res: Response, next: NextFunction)=>{
             console.log('complete')
             next()
