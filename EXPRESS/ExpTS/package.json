@@ -3,6 +3,7 @@
     "dotenv": "^16.5.0",
     "envalid": "^8.0.0",
     "express": "^5.1.0",
+    "morgan": "^1.10.0",
     "nodemon": "^3.1.10"
   },
   "name": "expts",
@@ -11,6 +12,7 @@
   "devDependencies": {
     "@eslint/js": "^9.27.0",
     "@types/express": "^5.0.2",
+    "@types/morgan": "^1.9.9",
     "@types/node": "^22.15.24",
     "eslint": "^9.27.0",
     "globals": "^16.2.0",
