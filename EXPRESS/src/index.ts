@@ -21,7 +21,7 @@ app.use('/img', express.static(`${process.cwd()}/public/img`))
 //app.use(logger('simple'));
 app.use(morgan('combined'))
 app.use(router)
-app.use(loremRouter)
+app.use("/", loremRouter)
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
