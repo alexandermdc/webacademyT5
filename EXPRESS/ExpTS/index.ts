@@ -22,7 +22,7 @@ app.use('/js', express.static(`${process.cwd()}/public/js`))
 app.use('/img', express.static(`${process.cwd()}/public/img`))
 
 
-app.use(logger("simple"));
+app.use(logger("simple")); // Use the logger middleware with the "simple" format
 app.use(morgan("combined"));
 app.use(router);
 app.use(loremRouter);
