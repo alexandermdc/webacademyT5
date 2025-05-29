@@ -15,7 +15,12 @@ const PORT = process.env.PORT || 3333;
 app.use(morgan("short"));
 app.use(logMiddleware("complete"));
 
-app.engine("handlebars", engine());
+app.engine("handlebars", engine({
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  helpers: require(`${__dirname}/views/helpers/helpers.ts`),
+  layoutsDir: `${__dirname}/views/layouts`,
+  defaultLayout: 'main',
+}));
 app.set("view engine", "handlebars");
 app.set("views", `${__dirname}/views`);
 
