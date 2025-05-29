@@ -42,7 +42,7 @@ const index = (req: Request, res: Response) => {
 
 const hb1 = (req: Request, res: Response) => {
     res.render("main/hb1", {
-        uf: 'Universide Federal do Amazonas',
+        uf: 'Universidade Federal do Amazonas',
     });
 };
 
