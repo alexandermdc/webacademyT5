@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import validateEnv from './utils/validateEnv';
 import morgan from "morgan";
 import logMiddleware from "./utils/logMiddleware";
+import routerLorem from "./routes/lorem";
 dotenv.config();
 validateEnv();
 const app = express();
@@ -12,6 +13,7 @@ app.use(logMiddleware("complete"));
 app.get("/", (req: Request, res: Response) => {
     res.send("Hello world!");
 });
+app.use("/lorem", routerLorem);
 app.listen(PORT, () => {
     console.log(`Express app iniciada na porta ${PORT}.`);
 });
