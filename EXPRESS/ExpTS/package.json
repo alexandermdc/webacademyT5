@@ -6,7 +6,10 @@
     "express-handlebars": "^8.0.3",
     "lorem-ipsum": "^2.0.8",
     "morgan": "^1.10.0",
-    "nodemon": "^3.1.10"
+    "node-sass-middleware": "^1.1.0",
+    "nodemon": "^3.1.10",
+    "sass": "^1.89.0",
+    "sass-middleware": "^0.0.3"
   },
   "name": "expts",
   "version": "1.0.0",
@@ -16,6 +19,7 @@
     "@types/express": "^5.0.2",
     "@types/morgan": "^1.9.9",
     "@types/node": "^22.15.24",
+    "@types/node-sass-middleware": "^0.0.35",
     "eslint": "^9.27.0",
     "globals": "^16.2.0",
     "prettier": "^3.5.3",

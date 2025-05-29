@@ -42,8 +42,7 @@ const index = (req: Request, res: Response) => {
 
 const hb1 = (req: Request, res: Response) => {
     res.render("main/hb1", {
-        mensagem: 'olá você está aprendendo Express com HBS',
-        layout: false,
+        uf: 'Universide Federal do Amazonas',
     });
 };
 
@@ -52,7 +51,6 @@ const hb2 = (req: Request, res: Response) => {
         poweredByNodejs: true,
         name: 'Express',
         type: 'Framework',
-        layout: false,
 
     });
 };
@@ -66,7 +64,6 @@ const hb3 = (req: Request, res: Response) => {
     ];
     res.render("main/hb3", {
         professores,
-        layout: false,
     });
 };
 const hb4 = (req: Request, res: Response) => {
@@ -81,7 +78,6 @@ const hb4 = (req: Request, res: Response) => {
     ];
     res.render("main/hb4", {
         technologies,
-        layout: false,
     });
 };
 
