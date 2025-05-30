@@ -16,7 +16,7 @@ router.get('/products', productController.index);
 router.all('/products/create', productController.create);
 router.all('/products/update/:id', productController.update);
 router.get('/products/:id', productController.read);
-router.post('/products/remove/:id', productController.remove);
+router.all('/products/remove/:id', productController.remove);
 
 
 

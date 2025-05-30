@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { get, post, put } from '../utils/Dbapi';
+import { get, post, put, removeProduct } from '../utils/Dbapi';
 import { Product } from '../types/products';
 
 const index = async (req: Request, res: Response) => {
@@ -35,9 +35,14 @@ async function update (req: Request, res: Response) {
     }
 };
 async function remove (req: Request, res: Response) {
-    if (req.method === 'POST') {
-        await post(`products/remove`, { id: req.body.id });
+    if (req.method === 'GET') {
+        const product = await get(`products/${req.params.id}`);
+        res.render('products/remove', { product });
+    } else if (req.method === 'POST') {
+        await removeProduct(`products/${req.params.id}`);
         res.redirect('/products');
+    } else {
+        res.status(405).send('Method Not Allowed');
     }
 };
 

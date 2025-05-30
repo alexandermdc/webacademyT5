@@ -18,9 +18,9 @@ export async function post(endpoint: string, data: any) {
         throw error;
     }
 }
-export async function remove(endpoint: string) {
+export async function removeProduct(endpoint: string) {
     try {
-        const response = await axios.delete(`${process.env.DB_URL}/${endpoint}`);
+        const response = await axios.delete(`${process.env.DB_URL}/${endpoint}` );
         return response.data;
     } catch (error) {
         console.error("Error removing data:", error);
