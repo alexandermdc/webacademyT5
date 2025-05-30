@@ -15,6 +15,7 @@ const PORT = process.env.PORT || 3333;
 app.use(logMiddleware("complete"));
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 app.use('/img', [
  express.static(`${__dirname}/public/img`)

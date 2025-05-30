@@ -1,9 +1,11 @@
 {
   "dependencies": {
+    "axios": "^1.9.0",
     "dotenv": "^16.5.0",
     "envalid": "^8.0.0",
     "express": "^5.1.0",
     "express-handlebars": "^8.0.3",
+    "json-server": "^1.0.0-beta.3",
     "lorem-ipsum": "^2.0.8",
     "morgan": "^1.10.0",
     "node-sass-middleware": "^1.1.0",
@@ -28,7 +30,9 @@
     "typescript-eslint": "^8.33.0"
   },
   "scripts": {
+    "start:db": "npx json-server --watch data/db.json --port 3355",
     "start": "nodemon ./src/index.ts",
+    "sass": "sass --watch ./src/public/sass:./src/public/css",
     "start:prod": "tsc && node ./build/index.js"
   },
   "keywords": [],

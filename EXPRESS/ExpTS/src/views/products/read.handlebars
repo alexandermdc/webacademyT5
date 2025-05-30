@@ -1,0 +1,16 @@
+<div class="d-flex justify-content-between align-items-start">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Preço: {{product.price}}</h6>
+            <p class="card-text">Estoque {{product.stock}}</p>
+            <a href="/products/update/{{id}}"><i class="bi bi-pencil-fill"></i></a>
+            <a href="/products/remove/{{id}}" method="POST" style="display:inline;"><i class="bi bi-trash3-fill"></i></a>
+        </div>
+    </div>
+    <h2>
+        <a href="/products">
+            <i class="bi bi-arrow-left-square-fill"></i>
+        </a>
+    </h2>
+</div>
