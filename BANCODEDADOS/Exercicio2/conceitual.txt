@@ -1,0 +1,15 @@
+Cliente(rg, nome, sexo, fone)
+Quarto(numero, tipo, descrição, preco, andar)
+Servico(id, descricao, nome)
+
+Reserva(rg_cliente, num_quart, data, qtd_dias)
+	reserva[rg_cliente]->cliente[rg]
+	reserva[num_quart] -> quarto[numero]
+
+Ocupa(rg_cliente, num_quart, data_entrada, dat_saida)
+	ocupa[rg_cliente]->cliente[rg]
+	opuca[num_quart] -> quarto[numero]
+
+Solicita(rg_cliente, num_quarto, data_entrada, id, data-hora )
+	solicita[rg_cliente, num_quarto, data_entrada]->ocupa[rg_cliente, num_quarto, data]
+	solicita[id_servico]->servico[id]
