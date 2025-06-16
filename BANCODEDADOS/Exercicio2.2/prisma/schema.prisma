@@ -1,0 +1,86 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Endereco {
+  id_endereco Int      @id @default(autoincrement())
+  rua         String
+  numero      String
+  bairro      String
+  cidade      String
+  estado      String
+  cep         String
+
+  clientes    Cliente[]
+}
+
+model Cliente {
+  id_cliente      Int      @id @default(autoincrement())
+  id_endereco     Int
+  nome            String
+  cpf             String   @unique
+  telefone        String?
+  email           String?  @unique
+  data_nascimento DateTime?
+
+  endereco        Endereco @relation(fields: [id_endereco], references: [id_endereco])
+  compras         Compra[]
+}
+
+model Categoria {
+  id_categoria    Int             @id @default(autoincrement())
+  nome_categoria  String
+
+  subcategorias   SubCategoria[]  // Uma categoria possui várias subcategorias
+}
+
+model SubCategoria {
+  id_subcategoria   Int            @id @default(autoincrement())
+  id_categoria      Int
+
+  nome_subcategoria String
+
+  categoria         Categoria      @relation(fields: [id_categoria], references: [id_categoria])
+  produtos          Produto[]      // Uma subcategoria possui vários produtos
+}
+
+model Compra {
+  id_compra         Int      @id @default(autoincrement())
+  id_cliente        Int
+  formaDepagamento  String
+  data_hora         DateTime
+  descricao         String?
+  total             Decimal
+
+  cliente           Cliente   @relation(fields: [id_cliente], references: [id_cliente])
+  produtos          Produto[]
+}
+
+model NumSerie {
+  id_numSerie   Int      @id @default(autoincrement())
+  numeroSerie   String   @unique
+
+  produtos      Produto[]
+}
+
+model Produto {
+  id_produto       Int          @id @default(autoincrement())
+  id_subcategoria  Int
+  id_numSerie      Int
+  id_compra        Int?
+
+  nome             String
+  descricao        String?
+  preco_base       Decimal
+  quantidade       Int
+  fabricante       String?
+
+  subcategoria     SubCategoria @relation(fields: [id_subcategoria], references: [id_subcategoria])
+  numSerie         NumSerie     @relation(fields: [id_numSerie], references: [id_numSerie])
+  compra           Compra?      @relation(fields: [id_compra], references: [id_compra])
+}
