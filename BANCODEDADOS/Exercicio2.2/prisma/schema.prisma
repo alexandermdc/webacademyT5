@@ -21,16 +21,18 @@ model Endereco {
 
 model Cliente {
   id_cliente      Int      @id @default(autoincrement())
-  id_endereco     Int
+  id_endereco     Int?     // opcional
   nome            String
   cpf             String   @unique
   telefone        String?
   email           String?  @unique
   data_nascimento DateTime?
 
-  endereco        Endereco @relation(fields: [id_endereco], references: [id_endereco])
+  endereco        Endereco? @relation(fields: [id_endereco], references: [id_endereco])
   compras         Compra[]
 }
+
+
 
 model Categoria {
   id_categoria    Int             @id @default(autoincrement())
