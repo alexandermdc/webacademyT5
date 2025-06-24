@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+/* import { Request, Response } from "express";
 import { createProductDto } from "./product.types";
 import { createProduct } from "./product.service";
 import { StatusCodes } from "http-status-codes";
@@ -35,3 +35,4 @@ const remove = (req: Request, res: Response) => {
 };
 
 export default { index, create, read, update, remove };
+ */

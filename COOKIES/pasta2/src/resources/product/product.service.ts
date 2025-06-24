@@ -1,4 +1,4 @@
-import { PrismaClient, Product } from "@prisma/client";
+/* import { PrismaClient, Product } from "@prisma/client";
 import { createProductDto } from "./product.types";
 
 const prisma = new PrismaClient();
@@ -8,4 +8,4 @@ export const createProduct = async (product: createProductDto): Promise<Product>
 }
 export const getProducts = async ()=>{
   
-}
+} */

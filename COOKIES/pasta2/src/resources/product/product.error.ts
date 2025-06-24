@@ -1,4 +1,4 @@
-import { Response } from "express";
+/* import { Response } from "express";
 import { Prisma } from "@prisma/client";
 
 export const createProductError = (res: Response,err: any)=>{
@@ -18,4 +18,4 @@ export const createProductError = (res: Response,err: any)=>{
             message: "Something went wrong. Please try again later.",
         });
     }
-}
+} */
