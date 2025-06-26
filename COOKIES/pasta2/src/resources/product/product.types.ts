@@ -1,4 +1,6 @@
-/* import {Product } from "@prisma/client";
+import { Product } from '@prisma/client';
 
-export type createProductDto = Pick<Product, "name" | "price" | "stockQuantity">;
- */
+type ProdCreateDto= Pick<Product,'name'|'price'|'stockQuantity'>;
+type ProdUpdateDto= Pick<Product,'name'|'price'|'stockQuantity'>;
+
+export type { ProdCreateDto, ProdUpdateDto };

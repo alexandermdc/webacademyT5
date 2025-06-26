@@ -1,38 +1,95 @@
-/* import { Request, Response } from "express";
-import { createProductDto } from "./product.types";
-import { createProduct } from "./product.service";
-import { StatusCodes } from "http-status-codes";
-import { getProducts } from "../productArray/product.service";
-import { createProductError } from "./product.error";
+// src/resources/product/product.controller.ts
+import { Request, Response } from 'express';
+import { StatusCodes, ReasonPhrases } from 'http-status-codes';
+import { createProductError } from './product.error';
+import {
+  getAllProducts,
+  createProduct,
+  alreadyExists,
+  getProduct,
+  updateProduct,
+  removeProduct,
+} from './product.service';
+import { ProdCreateDto } from './product.types';
 
-const index = (req: Request, res: Response) => {
-  const products = await getProducts(); //modificacao
-  try{
-    res.status(StatusCodes.)
-  }
-};
-
-const create = async (req: Request, res: Response) => {
-  const newProduct = req.body as createProductDto;
+// GET /product
+const index = async function index(req: Request, res: Response) {
   try {
-    const product = await createProduct(newProduct);
-    res.status(StatusCodes.CREATED).json(product);
+    const products = await getAllProducts();
+    res.status(StatusCodes.OK).json(products);
   } catch (err) {
-    createProductError(res, err)
+    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'Erro ao buscar produtos.' });
   }
+}
+
+// GET /product/:id
+const read = async function read(req: Request, res: Response) {
+  const { id } = req.params;
+  try {
+    const product = await getProduct(id);
+    if (!product) {
+      return res.status(StatusCodes.NOT_FOUND).json({ message: 'Produto não encontrado.' });
+    }
+    res.status(StatusCodes.OK).json(product);
+  } catch (err) {
+    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'Erro ao buscar produto.' });
+  }
+}
+
+// POST /product
+const create = async function create(req: Request, res: Response) {
+  const product = req.body as ProdCreateDto;
+
+  try {
+    if (await alreadyExists(product.name)) {
+      return res.status(StatusCodes.CONFLICT).json({
+        error: ReasonPhrases.CONFLICT,
+        message: 'Produto já existe',
+      });
+    }
+
+    const newProduct = await createProduct(product);
+    return res.status(StatusCodes.CREATED).json(newProduct);
+  } catch (err: any) {
+    return createProductError(res, err);
+  }
+}
+
+// PUT /product/:id
+const update = async function update(req: Request, res: Response) {
+  const { id } = req.params;
+  const productData = req.body as ProdCreateDto;
+
+  try {
+    const updated = await updateProduct(id, productData);
+    if (!updated) {
+      return res.status(StatusCodes.NOT_FOUND).json({ message: 'Produto não encontrado.' });
+    }
+    res.status(StatusCodes.OK).json(updated);
+  } catch (err) {
+    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'Erro ao atualizar produto.' });
+  }
+}
+
+// DELETE /product/:id
+const remove = async function remove(req: Request, res: Response) {
+  const { id } = req.params;
+
+  try {
+    const deleted = await removeProduct(id);
+    if (!deleted) {
+      return res.status(StatusCodes.NOT_FOUND).json({ message: 'Produto não encontrado.' });
+    }
+    res.status(StatusCodes.NO_CONTENT).send();
+  } catch (err) {
+    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'Erro ao remover produto.' });
+  }
+}
+
+export default {
+  index,
+  read,
+  create,
+  update,
+  remove,
 };
-
-const read = (req: Request, res: Response) => {
-
-};
-
-const update = (req: Request, res: Response) => {
-
-};
-
-const remove = (req: Request, res: Response) => {
-
-};
-
-export default { index, create, read, update, remove };
- */
