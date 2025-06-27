@@ -2,14 +2,7 @@
 import { Request, Response } from 'express';
 import { StatusCodes, ReasonPhrases } from 'http-status-codes';
 import { createProductError } from './product.error';
-import {
-  getAllProducts,
-  createProduct,
-  alreadyExists,
-  getProduct,
-  updateProduct,
-  removeProduct,
-} from './product.service';
+import {getAllProducts, createProduct, getProduct,updateProduct, removeProduct,} from './product.service';
 import { ProdCreateDto } from './product.types';
 
 // GET /product
@@ -35,19 +28,10 @@ const read = async function read(req: Request, res: Response) {
     res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'Erro ao buscar produto.' });
   }
 }
-
-// POST /product
 const create = async function create(req: Request, res: Response) {
   const product = req.body as ProdCreateDto;
-
+  console.log('Received product data:', product);
   try {
-    if (await alreadyExists(product.name)) {
-      return res.status(StatusCodes.CONFLICT).json({
-        error: ReasonPhrases.CONFLICT,
-        message: 'Produto já existe',
-      });
-    }
-
     const newProduct = await createProduct(product);
     return res.status(StatusCodes.CREATED).json(newProduct);
   } catch (err: any) {

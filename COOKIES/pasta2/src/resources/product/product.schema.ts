@@ -1,9 +1,8 @@
-import Joi from "joi";
+import Joi from 'joi';
 
-const productSchema = Joi.object().keys({
-    name: Joi.string().min(3).max(50).required(),
-    price: Joi.number().min(0).required(),
-    stockQuantity: Joi.number().integer().min(0).required(),
+const schema = Joi.object({
+    name: Joi.string().min(3).max(100).required(),
+    price: Joi.number().required(),
+    stockQuantity: Joi.number().integer().required()
 });
-
-export default productSchema;
+export default schema;
