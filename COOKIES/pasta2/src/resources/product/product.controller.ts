@@ -14,8 +14,6 @@ const index = async function index(req: Request, res: Response) {
     res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'Erro ao buscar produtos.' });
   }
 }
-
-// GET /product/:id
 const read = async function read(req: Request, res: Response) {
   const { id } = req.params;
   try {
